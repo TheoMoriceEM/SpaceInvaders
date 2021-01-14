@@ -12,9 +12,8 @@ GameObject:
   - component: {fileID: 2615836669301588108}
   - component: {fileID: 2615836669301588147}
   - component: {fileID: 2615836669301588146}
-  - component: {fileID: 2615836669301588110}
-  - component: {fileID: 2615836669301588111}
   - component: {fileID: 2615836669301588104}
+  - component: {fileID: 5374213325930647484}
   m_Layer: 0
   m_Name: asteroid-ship
   m_TagString: Player
@@ -51,6 +50,7 @@ SpriteRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -166,30 +166,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &2615836669301588110
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2615836669301588145}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 46ae1ecc110faf64c9013895a683fcad, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &2615836669301588111
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2615836669301588145}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 46ae1ecc110faf64c9013895a683fcad, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &2615836669301588104
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -204,3 +180,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   projectile: {fileID: 7567506437448218628, guid: f37fec5ef9c1a584b979894e1b4d12cd,
     type: 3}
+--- !u!114 &5374213325930647484
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2615836669301588145}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: efc5e17a47691ce4ab8e230e7153105b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

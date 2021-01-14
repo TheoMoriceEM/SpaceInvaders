@@ -12,9 +12,7 @@ GameObject:
   - component: {fileID: 5694931083407755950}
   - component: {fileID: 5694931083407755601}
   - component: {fileID: 5694931083407755600}
-  - component: {fileID: 5694931083407755948}
   - component: {fileID: 5694931083407755949}
-  - component: {fileID: 5694931083407755946}
   m_Layer: 0
   m_Name: asteroid-rock-1
   m_TagString: Enemy
@@ -51,6 +49,7 @@ SpriteRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -194,18 +193,6 @@ PolygonCollider2D:
       - {x: 0.155, y: -0.705}
       - {x: 0.035, y: -0.775}
       - {x: -0.21499999, y: -0.91499996}
---- !u!114 &5694931083407755948
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5694931083407755603}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 46ae1ecc110faf64c9013895a683fcad, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &5694931083407755949
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -222,15 +209,3 @@ MonoBehaviour:
   divisions:
   - {fileID: 4695814225356773500, guid: f85a0e6f4fdfc444a9232de76b242907, type: 3}
   - {fileID: 6029380642931755194, guid: 74405b75811d713438dbb5464b11e54d, type: 3}
---- !u!114 &5694931083407755946
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5694931083407755603}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 46ae1ecc110faf64c9013895a683fcad, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
