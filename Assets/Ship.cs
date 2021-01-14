@@ -35,7 +35,6 @@ public class Ship : MonoBehaviour
         if (GameManager.state == GameManager.States.play)
         {
             Move();
-            Turn();
             Fire();
         }
     }
@@ -57,24 +56,14 @@ public class Ship : MonoBehaviour
         bullet.GetComponent<Rigidbody2D>().velocity = transform.TransformDirection(0, projectileSpeed, 0);
     }
 
-    void Turn()
-    {
-        rotation = Input.GetAxisRaw("Horizontal");
-        transform.Rotate(0, 0, rotation * Time.deltaTime * rotationSpeed * -1);
-    }
-
     void Move()
     {
-        thrust = Input.GetAxisRaw("Vertical");
-        if (thrust < 0)
-        {
-            thrust = 0;
-        }
+        thrust = Input.GetAxisRaw("Horizontal");
     }
 
     private void FixedUpdate()
     {
-        Vector3 force = transform.TransformDirection(0, thrust * speed, 0);
+        Vector3 force = transform.TransformDirection(-thrust * speed, 0, 0);
         rb.AddForce(force);
     }
 }
