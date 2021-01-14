@@ -58,7 +58,7 @@ public class GameManager : MonoBehaviour
             messageTxt.text = "highscore: " + highscore;
             messageTxt.gameObject.SetActive(true);
         }
-        
+
         state = States.wait;
     }
 
@@ -88,10 +88,11 @@ public class GameManager : MonoBehaviour
     {
         state = States.play;
 
-        for (int i = 0; i < 2 + level; i++)
+        int maxEnemies = level > 6 ? 6 : level;
+        for (int i = 1; i <= maxEnemies; i++)
         {
             float x = Random.Range(-width, width);
-            float y = Random.Range(-height, height);
+            float y = -height + (i - 1) * 2;
             Instantiate(asteroid, new Vector2(x, y), Quaternion.identity);
         }
     }

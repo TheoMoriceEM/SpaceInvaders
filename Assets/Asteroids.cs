@@ -36,11 +36,11 @@ public class Asteroids : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    /**void Update()
     {
         rb.velocity = speed;
         transform.Rotate(Vector3.forward * rotation * Time.deltaTime);
-    }
+    }*/
 
     void OnTriggerEnter2D(Collider2D collision)
     {
