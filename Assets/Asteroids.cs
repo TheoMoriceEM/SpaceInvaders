@@ -4,6 +4,11 @@ using UnityEngine;
 
 public class Asteroids : MonoBehaviour
 {
+    Camera cam;
+
+    float camHeight;
+    float camWidth;
+
     readonly float initialSpeed = 5.0f;
     Vector2 speed;
 
@@ -17,9 +22,16 @@ public class Asteroids : MonoBehaviour
 
     GameManager gameManager;
 
+    int direction = 1;
+
     // Start is called before the first frame update
     void Start()
     {
+        cam = Camera.main;
+
+        camHeight = cam.orthographicSize;
+        camWidth = camHeight * cam.aspect;
+
         gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
 
         rotation = Random.Range(-initialRotation, initialRotation);
@@ -28,7 +40,7 @@ public class Asteroids : MonoBehaviour
         float x = Random.Range(-initialSpeed, initialSpeed);
         float y = Random.Range(-initialSpeed, initialSpeed);
 
-        speed = new Vector2(x, y);
+        speed = new Vector2(initialSpeed, 0);
 
         // appliquer la vélocité
         rb = GetComponent<Rigidbody2D>();
@@ -36,11 +48,17 @@ public class Asteroids : MonoBehaviour
     }
 
     // Update is called once per frame
-    /**void Update()
+    void Update()
     {
-        rb.velocity = speed;
-        transform.Rotate(Vector3.forward * rotation * Time.deltaTime);
-    }*/
+        rb.velocity = direction * speed;
+
+        if (direction == 1 && rb.transform.position.x >= camWidth)
+        {
+            direction = -1;
+        } else if (direction == -1 && rb.transform.position.x <= -camWidth) {
+            direction = 1;
+        }
+    }
 
     void OnTriggerEnter2D(Collider2D collision)
     {
