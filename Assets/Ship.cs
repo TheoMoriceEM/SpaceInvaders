@@ -22,11 +22,15 @@ public class Ship : MonoBehaviour
 
     Rigidbody2D rb;
 
+    GameManager gameManager;
+
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         rb.drag = drag;
+
+        gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
     }
 
     // Update is called once per frame
@@ -65,5 +69,13 @@ public class Ship : MonoBehaviour
     {
         Vector3 force = transform.TransformDirection(-thrust * speed, 0, 0);
         rb.AddForce(force);
+    }
+
+    void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.tag == "EnemyBullet")
+        {
+            gameManager.KillPlayer();
+        }
     }
 }
