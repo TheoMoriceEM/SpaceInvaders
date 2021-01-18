@@ -209,3 +209,5 @@ MonoBehaviour:
   divisions:
   - {fileID: 4695814225356773500, guid: f85a0e6f4fdfc444a9232de76b242907, type: 3}
   - {fileID: 6029380642931755194, guid: 74405b75811d713438dbb5464b11e54d, type: 3}
+  projectile: {fileID: 3516049517971234841, guid: 9ff9eda422f331f45829f9faf6a0f2eb,
+    type: 3}

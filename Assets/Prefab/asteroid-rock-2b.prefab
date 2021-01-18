@@ -181,3 +181,5 @@ MonoBehaviour:
   - {fileID: 7997837672636560337, guid: b6ad48788a5496843ab0af7e982dca1c, type: 3}
   - {fileID: 9191685945365377532, guid: 09df3a737b9ba9047b1966fb05b88906, type: 3}
   - {fileID: 360726105624491519, guid: 69f42e9f6ad7dea4f862e0eab32c34fb, type: 3}
+  projectile: {fileID: 3516049517971234841, guid: 9ff9eda422f331f45829f9faf6a0f2eb,
+    type: 3}

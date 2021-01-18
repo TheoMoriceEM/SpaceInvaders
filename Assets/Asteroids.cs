@@ -24,6 +24,12 @@ public class Asteroids : MonoBehaviour
 
     int direction = 1;
 
+    readonly float fireRate = 1f;
+    float nextFire;
+
+    public GameObject projectile;
+    readonly float projectileSpeed = 4f;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -58,6 +64,28 @@ public class Asteroids : MonoBehaviour
         } else if (direction == -1 && rb.transform.position.x <= -camWidth) {
             direction = 1;
         }
+
+        if (GameManager.state == GameManager.States.play)
+        {
+            Fire();
+        }
+    }
+
+    void Fire()
+    {
+        nextFire += Time.deltaTime;
+
+        if (nextFire > fireRate)
+        {
+            Shoot();
+            nextFire = 0;
+        }
+    }
+
+    void Shoot()
+    {
+        GameObject bullet = Instantiate(projectile, transform.position, transform.rotation);
+        bullet.GetComponent<Rigidbody2D>().velocity = transform.TransformDirection(0, projectileSpeed, 0);
     }
 
     void OnTriggerEnter2D(Collider2D collision)

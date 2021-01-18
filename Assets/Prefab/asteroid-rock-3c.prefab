@@ -160,3 +160,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   points: 30
   divisions: []
+  projectile: {fileID: 3516049517971234841, guid: 9ff9eda422f331f45829f9faf6a0f2eb,
+    type: 3}
