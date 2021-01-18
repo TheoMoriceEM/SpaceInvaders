@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 9191685945365377534}
   - component: {fileID: 9191685945365377533}
   - component: {fileID: 9191685945365377506}
-  - component: {fileID: 9191685945365377507}
   m_Layer: 0
   m_Name: asteroid-rock-3b
   m_TagString: Enemy
@@ -163,18 +162,3 @@ MonoBehaviour:
   divisions: []
   projectile: {fileID: 3516049517971234841, guid: 9ff9eda422f331f45829f9faf6a0f2eb,
     type: 3}
---- !u!114 &9191685945365377507
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9191685945365377532}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1beae5eb411762447bcd1549f71123b4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  points: 10
-  divisions: []
-  projectile: {fileID: 0}
