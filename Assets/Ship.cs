@@ -17,7 +17,7 @@ public class Ship : MonoBehaviour
     public GameObject projectile;
     readonly float projectileSpeed = 4f;
 
-    private float fireRate = .5f;
+    private float fireRate = 1f;
     float nextFire;
 
     Rigidbody2D rb;
@@ -58,6 +58,7 @@ public class Ship : MonoBehaviour
     {
         GameObject bullet = Instantiate(projectile, transform.position, transform.rotation);
         bullet.GetComponent<Rigidbody2D>().velocity = transform.TransformDirection(0, projectileSpeed, 0);
+
     }
 
     void Move()
@@ -73,9 +74,9 @@ public class Ship : MonoBehaviour
 
     IEnumerator ManageBonus()
     {
-        fireRate = .25f;
-        yield return new WaitForSecondsRealtime(10f);
         fireRate = .5f;
+        yield return new WaitForSecondsRealtime(10f);
+        fireRate = 1f;
     }
 
     void OnTriggerEnter2D(Collider2D collision)

@@ -16,7 +16,6 @@ public class Asteroids : MonoBehaviour
     float rotation;
 
     public int points = 10;
-    public GameObject[] divisions;
 
     Rigidbody2D rb;
 
@@ -100,11 +99,6 @@ public class Asteroids : MonoBehaviour
             Destroy(collision.gameObject);
             // destruction = astéroïde initial
             Destroy(gameObject); // équivalent à this.gameObject
-            // division = potentielle
-            foreach (GameObject enemy in divisions)
-            {
-                Instantiate(enemy, transform.position, Quaternion.identity);
-            }
             // score
             gameManager.AddScore(points);
         }

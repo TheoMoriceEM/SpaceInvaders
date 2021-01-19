@@ -97,7 +97,7 @@ public class GameManager : MonoBehaviour
         for (int i = 1; i <= maxEnemies; i++)
         {
             float x = Random.Range(-width, width);
-            float y = -height + (i - 1) * 2;
+            float y = (-height + 1f) + (i - 1) * 2;
             Instantiate(asteroid, new Vector2(x, y), Quaternion.identity);
         }
     }
