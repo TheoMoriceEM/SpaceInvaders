@@ -77,5 +77,10 @@ public class Ship : MonoBehaviour
         {
             gameManager.KillPlayer();
         }
+
+        if (collision.tag == "Capsule")
+        {
+            Destroy(collision.gameObject);
+        }
     }
 }
