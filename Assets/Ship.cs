@@ -17,7 +17,7 @@ public class Ship : MonoBehaviour
     public GameObject projectile;
     readonly float projectileSpeed = 4f;
 
-    readonly float fireRate = .25f;
+    private float fireRate = .5f;
     float nextFire;
 
     Rigidbody2D rb;
@@ -71,6 +71,13 @@ public class Ship : MonoBehaviour
         rb.AddForce(force);
     }
 
+    IEnumerator ManageBonus()
+    {
+        fireRate = .25f;
+        yield return new WaitForSecondsRealtime(10f);
+        fireRate = .5f;
+    }
+
     void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.tag == "EnemyBullet")
@@ -81,6 +88,7 @@ public class Ship : MonoBehaviour
         if (collision.tag == "Capsule")
         {
             Destroy(collision.gameObject);
+            StartCoroutine(ManageBonus());
         }
     }
 }
