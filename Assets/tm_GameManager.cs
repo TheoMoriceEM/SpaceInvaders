@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class GameManager : MonoBehaviour
+public class tm_GameManager : MonoBehaviour
 {
     public enum States
     {
@@ -32,7 +32,7 @@ public class GameManager : MonoBehaviour
     public GameObject waitToStart; // panel
 
     public GameObject capsule;
-    readonly float capsuleSpeed = 2f;
+    readonly float capsuleSpeed = 4f;
 
     private Vector2 capsulePosition;
 
@@ -60,7 +60,7 @@ public class GameManager : MonoBehaviour
         state = States.wait;
     }
 
-    public void LaunchGame()
+    public void tm_LaunchGame()
     {
         // interface
         waitToStart.gameObject.SetActive(false);
@@ -75,12 +75,12 @@ public class GameManager : MonoBehaviour
         }
 
         // lancer une partie
-        InitGame();
-        LoadLevel();
-        UpdateTexts();
+        tm_InitGame();
+        tm_LoadLevel();
+        tm_UpdateTexts();
     }
 
-    void LoadLevel()
+    void tm_LoadLevel()
     {
         state = States.play;
 
@@ -93,35 +93,35 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    void InitGame()
+    void tm_InitGame()
     {
         level = 1;
         score = 0;
         lives = 3;
     }
 
-    void UpdateTexts()
+    void tm_UpdateTexts()
     {
         levelTxt.text = "level: " + level;
         scoreTxt.text = "score: " + score;
         livesTxt.text = "lives: " + lives;
     }
 
-    public void AddScore(int points)
+    public void tm_AddScore(int points)
     {
         score += points;
-        UpdateTexts();
+        tm_UpdateTexts();
     }
 
     private void Update()
     {
         if (state == States.play)
         {
-            EndOfLevel();
+            tm_EndOfLevel();
         }
     }
 
-    void EndOfLevel()
+    void tm_EndOfLevel()
     {
         // chercher les astéroïdes
         GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
@@ -133,19 +133,19 @@ public class GameManager : MonoBehaviour
 
         if (enemies.Length == 0)
         {
-            StartCoroutine(LevelUp());
+            StartCoroutine(tm_LevelUp());
         }
     }
 
-    void InstantiateCapsule()
+    void tm_InstantiateCapsule()
     {
         GameObject capsuleObject = Instantiate(capsule, capsulePosition, Quaternion.identity);
         capsuleObject.GetComponent<Rigidbody2D>().velocity = transform.TransformDirection(0, capsuleSpeed, 0);
     }
 
-    IEnumerator LevelUp()
+    IEnumerator tm_LevelUp()
     {
-        InstantiateCapsule();
+        tm_InstantiateCapsule();
 
         state = States.levelup;
 
@@ -154,32 +154,32 @@ public class GameManager : MonoBehaviour
         messageTxt.gameObject.SetActive(true);
 
         // marquer une pause
-        yield return new WaitForSecondsRealtime(10f);
+        yield return new WaitForSecondsRealtime(6f);
 
         // cacher le message
         messageTxt.gameObject.SetActive(false);
         level += 1;
-        LoadLevel();
-        UpdateTexts();
+        tm_LoadLevel();
+        tm_UpdateTexts();
     }
 
-    public void KillPlayer()
+    public void tm_KillPlayer()
     {
-        StartCoroutine(PlayerAgain());
+        StartCoroutine(tm_PlayerAgain());
     }
 
-    IEnumerator PlayerAgain()
+    IEnumerator tm_PlayerAgain()
     {
         state = States.dead;
         lives -= 1;
         player.SetActive(false);
-        UpdateTexts();
+        tm_UpdateTexts();
         GameObject boomGO = Instantiate(boom, player.transform.position, Quaternion.identity);
         yield return new WaitForSecondsRealtime(1f);
         if (lives <= 0)
         {
             Destroy(boomGO);
-            GameOver();
+            tm_GameOver();
         }
         else
         {
@@ -189,7 +189,7 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    void GameOver()
+    void tm_GameOver()
     {
         state = States.wait;
 

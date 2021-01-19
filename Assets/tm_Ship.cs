@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Ship : MonoBehaviour
+public class tm_Ship : MonoBehaviour
 {
     // accélération / décélération
     readonly float speed = 10f;
@@ -22,7 +22,7 @@ public class Ship : MonoBehaviour
 
     Rigidbody2D rb;
 
-    GameManager gameManager;
+    tm_GameManager gameManager;
 
     // Start is called before the first frame update
     void Start()
@@ -30,38 +30,40 @@ public class Ship : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         rb.drag = drag;
 
-        gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
+        gameManager = GameObject.Find("GameManager").GetComponent<tm_GameManager>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (GameManager.state == GameManager.States.play || GameManager.state == GameManager.States.levelup)
+        if (tm_GameManager.state == tm_GameManager.States.play || tm_GameManager.state == tm_GameManager.States.levelup)
         {
-            Move();
-            Fire();
+            tm_Move();
+            if (tm_GameManager.state == tm_GameManager.States.play) {
+                tm_Fire();
+            }
         }
     }
 
-    void Fire()
+    void tm_Fire()
     {
         nextFire += Time.deltaTime;
 
         if (Input.GetButton("Fire1") && nextFire > fireRate)
         {
-            Shoot();
+            tm_Shoot();
             nextFire = 0;
         }
     }
 
-    void Shoot()
+    void tm_Shoot()
     {
         GameObject bullet = Instantiate(projectile, transform.position, transform.rotation);
         bullet.GetComponent<Rigidbody2D>().velocity = transform.TransformDirection(0, projectileSpeed, 0);
 
     }
 
-    void Move()
+    void tm_Move()
     {
         thrust = Input.GetAxisRaw("Horizontal");
     }
@@ -72,7 +74,7 @@ public class Ship : MonoBehaviour
         rb.AddForce(force);
     }
 
-    IEnumerator ManageBonus()
+    IEnumerator tm_ManageBonus()
     {
         fireRate = .5f;
         yield return new WaitForSecondsRealtime(10f);
@@ -83,13 +85,13 @@ public class Ship : MonoBehaviour
     {
         if (collision.tag == "EnemyBullet")
         {
-            gameManager.KillPlayer();
+            gameManager.tm_KillPlayer();
         }
 
         if (collision.tag == "Capsule")
         {
             Destroy(collision.gameObject);
-            StartCoroutine(ManageBonus());
+            StartCoroutine(tm_ManageBonus());
         }
     }
 }

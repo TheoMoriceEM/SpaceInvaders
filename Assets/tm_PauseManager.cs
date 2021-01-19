@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class PauseManager : MonoBehaviour
+public class tm_PauseManager : MonoBehaviour
 {
     public static bool gameIsPaused = false;
 
@@ -20,11 +20,11 @@ public class PauseManager : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.P))
         {
-            PauseGame();
+            tm_PauseGame();
         }
     }
 
-    void PauseGame()
+    void tm_PauseGame()
     {
         gameIsPaused = !gameIsPaused;
         if (gameIsPaused)

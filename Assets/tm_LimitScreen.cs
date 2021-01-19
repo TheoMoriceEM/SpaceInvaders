@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LimitScreen : MonoBehaviour
+public class tm_LimitScreen : MonoBehaviour
 {
     Camera cam;
 

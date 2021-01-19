@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3516049517971234844}
   - component: {fileID: 3516049517971234843}
   - component: {fileID: 3516049517971234842}
-  - component: {fileID: 7842418869915138115}
+  - component: {fileID: 1984642063885171221}
   m_Layer: 0
   m_Name: enemy-bullet
   m_TagString: EnemyBullet
@@ -135,7 +135,7 @@ PolygonCollider2D:
       - {x: -0.06, y: -0.14999999}
       - {x: 0.06, y: -0.14999999}
       - {x: 0.06, y: 0.14999999}
---- !u!114 &7842418869915138115
+--- !u!114 &1984642063885171221
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -144,6 +144,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 3516049517971234841}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 83b63bd00c1a5ae438ce8bc75ed1af83, type: 3}
+  m_Script: {fileID: 11500000, guid: 7d2cd46d9a060cc4d95b21a793b5b345, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 

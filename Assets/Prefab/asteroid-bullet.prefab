@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 7567506437448218625}
   - component: {fileID: 7567506437448218630}
   - component: {fileID: 7567506437448218631}
-  - component: {fileID: 7567506437448219645}
+  - component: {fileID: 3717050613047958321}
   m_Layer: 0
   m_Name: asteroid-bullet
   m_TagString: Bullet
@@ -135,7 +135,7 @@ PolygonCollider2D:
       - {x: -0.06, y: -0.14999999}
       - {x: 0.06, y: -0.14999999}
       - {x: 0.06, y: 0.14999999}
---- !u!114 &7567506437448219645
+--- !u!114 &3717050613047958321
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -144,6 +144,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 7567506437448218628}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5387b10ede2601147bc0df777606106f, type: 3}
+  m_Script: {fileID: 11500000, guid: 4c9e9223aca54344993cf9fbd89aeff0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 

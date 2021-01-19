@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Enemy : MonoBehaviour
+public class tm_Enemy : MonoBehaviour
 {
     Camera cam;
 
@@ -19,7 +19,7 @@ public class Enemy : MonoBehaviour
 
     Rigidbody2D rb;
 
-    GameManager gameManager;
+    tm_GameManager gameManager;
 
     int direction = 1;
 
@@ -37,7 +37,7 @@ public class Enemy : MonoBehaviour
         camHeight = cam.orthographicSize;
         camWidth = camHeight * cam.aspect;
 
-        gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
+        gameManager = GameObject.Find("GameManager").GetComponent<tm_GameManager>();
 
         rotation = Random.Range(-initialRotation, initialRotation);
 
@@ -64,24 +64,24 @@ public class Enemy : MonoBehaviour
             direction = 1;
         }
 
-        if (GameManager.state == GameManager.States.play)
+        if (tm_GameManager.state == tm_GameManager.States.play)
         {
-            Fire();
+            tm_Fire();
         }
     }
 
-    void Fire()
+    void tm_Fire()
     {
         nextFire += Time.deltaTime;
 
         if (nextFire > fireRate)
         {
-            Shoot();
+            tm_Shoot();
             nextFire = 0;
         }
     }
 
-    void Shoot()
+    void tm_Shoot()
     {
         GameObject bullet = Instantiate(projectile, transform.position, transform.rotation);
         bullet.GetComponent<Rigidbody2D>().velocity = transform.TransformDirection(0, projectileSpeed, 0);
@@ -91,7 +91,7 @@ public class Enemy : MonoBehaviour
     {
         if (collision.tag == "Player")
         {
-            gameManager.KillPlayer();
+            gameManager.tm_KillPlayer();
         }
         else if (collision.tag == "Bullet")
         {
@@ -100,7 +100,7 @@ public class Enemy : MonoBehaviour
             // destruction = astéroïde initial
             Destroy(gameObject); // équivalent à this.gameObject
             // score
-            gameManager.AddScore(points);
+            gameManager.tm_AddScore(points);
         }
     }
 }

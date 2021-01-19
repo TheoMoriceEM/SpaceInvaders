@@ -12,8 +12,8 @@ GameObject:
   - component: {fileID: 2615836669301588108}
   - component: {fileID: 2615836669301588147}
   - component: {fileID: 2615836669301588146}
-  - component: {fileID: 2615836669301588104}
-  - component: {fileID: 5374213325930647484}
+  - component: {fileID: 8089746284139039265}
+  - component: {fileID: 3731650546829618376}
   m_Layer: 0
   m_Name: asteroid-ship
   m_TagString: Player
@@ -166,7 +166,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &2615836669301588104
+--- !u!114 &8089746284139039265
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -175,12 +175,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 2615836669301588145}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e86d3b3a4b023fb4ba822a48f0ac6459, type: 3}
+  m_Script: {fileID: 11500000, guid: 0fcc8ff1f13bdac4ebc5f749a2a1a6b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   projectile: {fileID: 7567506437448218628, guid: f37fec5ef9c1a584b979894e1b4d12cd,
     type: 3}
---- !u!114 &5374213325930647484
+--- !u!114 &3731650546829618376
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -189,6 +189,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 2615836669301588145}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: efc5e17a47691ce4ab8e230e7153105b, type: 3}
+  m_Script: {fileID: 11500000, guid: 879e9bfcb5ec6574493dc0ebeea2f842, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
