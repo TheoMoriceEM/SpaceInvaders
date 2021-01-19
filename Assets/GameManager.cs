@@ -31,10 +31,6 @@ public class GameManager : MonoBehaviour
 
     public GameObject waitToStart; // panel
 
-    public GameObject networkPanel;
-
-    NetworkManager networkManager;
-
     public GameObject capsule;
     readonly float capsuleSpeed = 2f;
 
@@ -43,9 +39,6 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        networkManager = GetComponent<NetworkManager>();
-        networkPanel.gameObject.SetActive(true);
-
         messageTxt.gameObject.SetActive(false);
 
         player = GameObject.FindWithTag("Player");
@@ -69,8 +62,6 @@ public class GameManager : MonoBehaviour
 
     public void LaunchGame()
     {
-        networkPanel.gameObject.SetActive(false);
-
         // interface
         waitToStart.gameObject.SetActive(false);
         messageTxt.gameObject.SetActive(false);
@@ -106,7 +97,7 @@ public class GameManager : MonoBehaviour
     {
         level = 1;
         score = 0;
-        lives = 5;
+        lives = 3;
     }
 
     void UpdateTexts()
@@ -215,8 +206,5 @@ public class GameManager : MonoBehaviour
 
         messageTxt.gameObject.SetActive(true);
         waitToStart.gameObject.SetActive(true);
-
-        networkManager.SendScore(score);
-        networkPanel.gameObject.SetActive(true);
     }
 }
