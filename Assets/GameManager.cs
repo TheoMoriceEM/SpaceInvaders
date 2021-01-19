@@ -35,6 +35,11 @@ public class GameManager : MonoBehaviour
 
     NetworkManager networkManager;
 
+    public GameObject capsule;
+    readonly float capsuleSpeed = 2f;
+
+    private Vector2 capsulePosition;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -129,14 +134,28 @@ public class GameManager : MonoBehaviour
     {
         // chercher les astéroïdes
         GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
+
+        if (enemies.Length == 1)
+        {
+            capsulePosition = enemies[0].transform.position;
+        }
+
         if (enemies.Length == 0)
         {
             StartCoroutine(LevelUp());
         }
     }
 
+    void InstantiateCapsule()
+    {
+        GameObject capsuleObject = Instantiate(capsule, capsulePosition, Quaternion.identity);
+        capsuleObject.GetComponent<Rigidbody2D>().velocity = transform.TransformDirection(0, capsuleSpeed, 0);
+    }
+
     IEnumerator LevelUp()
     {
+        InstantiateCapsule();
+
         state = States.levelup;
 
         // afficher message "level up"
@@ -144,7 +163,7 @@ public class GameManager : MonoBehaviour
         messageTxt.gameObject.SetActive(true);
 
         // marquer une pause
-        yield return new WaitForSecondsRealtime(3f);
+        yield return new WaitForSecondsRealtime(10f);
 
         // cacher le message
         messageTxt.gameObject.SetActive(false);

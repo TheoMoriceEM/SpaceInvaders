@@ -36,7 +36,7 @@ public class Ship : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (GameManager.state == GameManager.States.play)
+        if (GameManager.state == GameManager.States.play || GameManager.state == GameManager.States.levelup)
         {
             Move();
             Fire();
