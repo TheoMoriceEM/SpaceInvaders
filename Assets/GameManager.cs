@@ -21,7 +21,7 @@ public class GameManager : MonoBehaviour
 
     public Text messageTxt;
 
-    public GameObject asteroid;
+    public GameObject enemy;
     GameObject player;
     public GameObject boom;
 
@@ -89,7 +89,7 @@ public class GameManager : MonoBehaviour
         {
             float x = Random.Range(-width, width);
             float y = (-height + 1f) + (i - 1) * 2;
-            Instantiate(asteroid, new Vector2(x, y), Quaternion.identity);
+            Instantiate(enemy, new Vector2(x, y), Quaternion.identity);
         }
     }
 

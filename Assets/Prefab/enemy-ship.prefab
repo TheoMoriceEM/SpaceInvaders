@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 5694931083407755950}
   - component: {fileID: 5694931083407755601}
   - component: {fileID: 5694931083407755600}
-  - component: {fileID: 5694931083407755949}
+  - component: {fileID: 6559835743937944487}
   m_Layer: 0
   m_Name: enemy-ship
   m_TagString: Enemy
@@ -193,7 +193,7 @@ PolygonCollider2D:
       - {x: 0.155, y: -0.705}
       - {x: 0.035, y: -0.775}
       - {x: -0.21499999, y: -0.91499996}
---- !u!114 &5694931083407755949
+--- !u!114 &6559835743937944487
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -202,7 +202,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 5694931083407755603}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1beae5eb411762447bcd1549f71123b4, type: 3}
+  m_Script: {fileID: 11500000, guid: 875c2efd15ac4394b86b450466f8f236, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   points: 10

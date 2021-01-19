@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Asteroids : MonoBehaviour
+public class Enemy : MonoBehaviour
 {
     Camera cam;
 
