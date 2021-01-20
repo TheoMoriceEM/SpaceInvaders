@@ -4,12 +4,15 @@ using UnityEngine;
 
 public class tm_Ship : MonoBehaviour
 {
+    // accélération / décélération
     readonly float speed = 10f;
-    readonly float drag = 1;
-    float thrust;
+    readonly float drag = 1; // résistance
+    float thrust; // poussée
 
+    // rotation
     float rotation;
 
+    // pouvoir tirer
     public GameObject projectile;
     readonly float projectileSpeed = 4f;
 
@@ -20,6 +23,7 @@ public class tm_Ship : MonoBehaviour
 
     tm_GameManager gameManager;
 
+    // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -28,6 +32,7 @@ public class tm_Ship : MonoBehaviour
         gameManager = GameObject.Find("GameManager").GetComponent<tm_GameManager>();
     }
 
+    // Update is called once per frame
     void Update()
     {
         if (tm_GameManager.state == tm_GameManager.States.play || tm_GameManager.state == tm_GameManager.States.levelup)

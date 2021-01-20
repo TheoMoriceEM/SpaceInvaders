@@ -9,6 +9,7 @@ public class tm_LimitScreen : MonoBehaviour
     float height;
     float width;
 
+    // Start is called before the first frame update
     void Start()
     {
         cam = Camera.main;
@@ -17,6 +18,7 @@ public class tm_LimitScreen : MonoBehaviour
         width = height * cam.aspect;
     }
 
+    // Update is called once per frame
     void Update()
     {
         if (transform.position.x >= width)

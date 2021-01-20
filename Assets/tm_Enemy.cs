@@ -29,6 +29,7 @@ public class tm_Enemy : MonoBehaviour
     public GameObject projectile;
     readonly float projectileSpeed = 4f;
 
+    // Start is called before the first frame update
     void Start()
     {
         cam = Camera.main;
@@ -40,15 +41,18 @@ public class tm_Enemy : MonoBehaviour
 
         rotation = Random.Range(-initialRotation, initialRotation);
 
+        // déterminer la vitesse x / y
         float x = Random.Range(-initialSpeed, initialSpeed);
         float y = Random.Range(-initialSpeed, initialSpeed);
 
         speed = new Vector2(initialSpeed, 0);
 
+        // appliquer la vélocité
         rb = GetComponent<Rigidbody2D>();
         rb.velocity = speed;
     }
 
+    // Update is called once per frame
     void Update()
     {
         rb.velocity = direction * speed;
@@ -91,8 +95,11 @@ public class tm_Enemy : MonoBehaviour
         }
         else if (collision.tag == "Bullet")
         {
+            // détruire la bullet
             Destroy(collision.gameObject);
-            Destroy(gameObject);
+            // destruction = astéroïde initial
+            Destroy(gameObject); // équivalent à this.gameObject
+            // score
             gameManager.tm_AddScore(points);
         }
     }

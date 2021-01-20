@@ -9,11 +9,13 @@ public class tm_PauseManager : MonoBehaviour
 
     public Text pauseTxt;
 
+    // Start is called before the first frame update
     void Start()
     {
         pauseTxt.gameObject.SetActive(false);
     }
 
+    // Update is called once per frame
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.P))
