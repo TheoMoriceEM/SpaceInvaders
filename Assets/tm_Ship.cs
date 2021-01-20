@@ -10,7 +10,6 @@ public class tm_Ship : MonoBehaviour
     float thrust; // poussée
 
     // rotation
-    readonly float rotationSpeed = 150f;
     float rotation;
 
     // pouvoir tirer

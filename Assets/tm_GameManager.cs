@@ -32,7 +32,7 @@ public class tm_GameManager : MonoBehaviour
     public GameObject waitToStart; // panel
 
     public GameObject capsule;
-    readonly float capsuleSpeed = 4f;
+    readonly float capsuleSpeed = 8f;
 
     private Vector2 capsulePosition;
 
@@ -123,7 +123,6 @@ public class tm_GameManager : MonoBehaviour
 
     void tm_EndOfLevel()
     {
-        // chercher les astéroïdes
         GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
 
         if (enemies.Length == 1)
@@ -145,6 +144,17 @@ public class tm_GameManager : MonoBehaviour
 
     IEnumerator tm_LevelUp()
     {
+        GameObject[] bullets = GameObject.FindGameObjectsWithTag("Bullet");
+        GameObject[] enemyBullets = GameObject.FindGameObjectsWithTag("EnemyBullet");
+        foreach (GameObject bullet in bullets)
+        {
+            Destroy(bullet);
+        }
+        foreach (GameObject enemyBullet in enemyBullets)
+        {
+            Destroy(enemyBullet);
+        }
+
         tm_InstantiateCapsule();
 
         state = States.levelup;
@@ -165,7 +175,10 @@ public class tm_GameManager : MonoBehaviour
 
     public void tm_KillPlayer()
     {
-        StartCoroutine(tm_PlayerAgain());
+        if (state != States.levelup)
+        {
+            StartCoroutine(tm_PlayerAgain());
+        }
     }
 
     IEnumerator tm_PlayerAgain()
