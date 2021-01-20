@@ -2,7 +2,7 @@
 2D space-shooter game developed with Unity 2020.2.1
 
 ### Provenance des assets
-Sprites des capsules et vaisseaux ennemis par Théo Morice
+Sprites des capsules et vaisseaux ennemis par Théo Morice  
 Tout le reste par Richard Carlier pour le jeu Asteroids
 
 ### UML simplifié (liste des classes et de leurs méthodes) :
