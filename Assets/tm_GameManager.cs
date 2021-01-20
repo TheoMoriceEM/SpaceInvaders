@@ -29,14 +29,13 @@ public class tm_GameManager : MonoBehaviour
 
     float height, width;
 
-    public GameObject waitToStart; // panel
+    public GameObject waitToStart;
 
     public GameObject capsule;
     readonly float capsuleSpeed = 8f;
 
     private Vector2 capsulePosition;
 
-    // Start is called before the first frame update
     void Start()
     {
         messageTxt.gameObject.SetActive(false);
@@ -62,11 +61,9 @@ public class tm_GameManager : MonoBehaviour
 
     public void tm_LaunchGame()
     {
-        // interface
         waitToStart.gameObject.SetActive(false);
         messageTxt.gameObject.SetActive(false);
 
-        // restaurer après une partie
         player.SetActive(true);
         GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
         foreach (GameObject enemy in enemies)
@@ -74,7 +71,6 @@ public class tm_GameManager : MonoBehaviour
             Destroy(enemy);
         }
 
-        // lancer une partie
         tm_InitGame();
         tm_LoadLevel();
         tm_UpdateTexts();
@@ -159,14 +155,11 @@ public class tm_GameManager : MonoBehaviour
 
         state = States.levelup;
 
-        // afficher message "level up"
         messageTxt.text = "level up";
         messageTxt.gameObject.SetActive(true);
 
-        // marquer une pause
         yield return new WaitForSecondsRealtime(6f);
 
-        // cacher le message
         messageTxt.gameObject.SetActive(false);
         level += 1;
         tm_LoadLevel();
